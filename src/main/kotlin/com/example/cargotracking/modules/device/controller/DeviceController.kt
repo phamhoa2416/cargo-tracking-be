@@ -28,12 +28,12 @@ class DeviceController(
     ): ResponseEntity<DeviceResponse> {
         val principal = authentication.principal as UserPrincipal
 
-        val createdDevice = deviceService.createDevice(
+        val device = deviceService.createDevice(
             request = request,
             providerId = principal.userId
         )
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdDevice)
+        return ResponseEntity.status(HttpStatus.CREATED).body(device)
     }
 
     @GetMapping("/{id}")
