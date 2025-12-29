@@ -2,8 +2,8 @@ package com.example.cargotracking.modules.user.model.dto.request
 
 import com.example.cargotracking.modules.user.validation.PasswordMatch
 import com.example.cargotracking.modules.user.validation.PasswordNotMatch
+import com.example.cargotracking.modules.user.validation.StrongPassword
 import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.Size
 
 @PasswordMatch(
     passwordField = "newPassword",
@@ -20,7 +20,7 @@ data class ChangePasswordRequest(
     val currentPassword: String,
 
     @field:NotBlank(message = "New password is required")
-    @field:Size(min = 8, message = "New password must be at least 8 characters")
+//    @field:StrongPassword TODO: enable after demo
     val newPassword: String,
 
     @field:NotBlank(message = "Password confirmation is required")

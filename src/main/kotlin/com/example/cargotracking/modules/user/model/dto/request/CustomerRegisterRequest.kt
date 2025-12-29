@@ -1,6 +1,7 @@
 package com.example.cargotracking.modules.user.model.dto.request
 
 import com.example.cargotracking.modules.user.validation.PasswordMatch
+import com.example.cargotracking.modules.user.validation.StrongPassword
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Pattern
@@ -21,7 +22,7 @@ data class CustomerRegisterRequest(
     val email: String,
 
     @field:NotBlank(message = "Password is required")
-    @field:Size(min = 8, message = "Password must be at least 8 characters")
+//    @field:StrongPassword TODO: enable after demo
     val password: String,
 
     @field:NotBlank(message = "Password confirmation is required")
